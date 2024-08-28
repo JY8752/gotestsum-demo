@@ -28,8 +28,6 @@ jobs:
         with:
           name: junit-test-report
           path: report.xml
-      - name: Test with Go
-        run: go test -json ./... > TestResults.json
       - name: Upload Go test results
         uses: actions/upload-artifact@v4
         with:
@@ -41,4 +39,4 @@ jobs:
         with:
           name: Tests
           path: report.xml
-          reporter: junit
+          reporter: junit-xml
