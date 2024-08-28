@@ -2,17 +2,32 @@ name: Upload Go test results
 
 on: [push]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go
+        id: setup-go
         uses: actions/setup-go@v5
         with:
           go-version: 1.22
       - name: Install dependencies
-        run: go get ./...
+        if: ${{ steps.setup-go.outputs.cache-hit != 'true' }}
+        run: go download
+      - name: Install gotestsum
+        run: go install gotest.tools/gotestsum@latest
+      - name: Run tests and generate JUnit report
+        run: gotestsum --junitfile report.xml --format testdox
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-test-report
+          path: report.xml
       - name: Test with Go
         run: go test -json ./... > TestResults.json
       - name: Upload Go test results
@@ -20,3 +35,10 @@ jobs:
         with:
           name: Go-results
           path: TestResults.json
+      - name: Test Report Summary
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: Tests
+          path: report.xml
+          reporter: junit
