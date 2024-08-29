@@ -1,22 +1,26 @@
 name: Go test with report
 
-on: [push]
+on:
+  push:
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 defaults:
   run:
     shell: bash
 
-permissions:
-  contents: read
-  actions: read
-  checks: write
-
-env:
-  GOTESTSUM_BIN: "${{ github.workspace }}/.tmp/gotestsum/bin"
-
 jobs:
   test-with-report:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      actions: read
+      checks: write
+
+    env:
+      GOTESTSUM_BIN: "${{ github.workspace }}/.tmp/gotestsum/bin"
+
     steps:
       - uses: actions/checkout@v4
 
@@ -35,14 +39,16 @@ jobs:
         if: ${{ steps.gotestsum-cache.outputs.cache-hit != 'true' }}
         run: GOBIN="${{ env.GOTESTSUM_BIN }}" go install gotest.tools/gotestsum@latest
 
-      - name: Run tests and generate JUnit report
-        run: "${{ env.GOTESTSUM_BIN }}/gotestsum --junitfile report.xml --format testdox"
+      - name: Run tests and generate JUnit report, test coverage
+        run: "${{ env.GOTESTSUM_BIN }}/gotestsum --junitfile report.xml --format testdox --  -cover -coverprofile=coverage.txt ./..."
 
-      - name: Upload test report
+      - name: Upload test report and coverage
         uses: actions/upload-artifact@v4
         with:
-          name: junit-test-report
-          path: report.xml
+          name: junit-test-report-and-coverage
+          path: |
+            report.xml
+            coverage.txt
 
       - name: Test Report Summary
         if: success() || failure()
@@ -51,3 +57,17 @@ jobs:
           name: Tests
           path: "*.xml"
           reporter: java-junit
+  code_coverage:
+    name: "Code coverage report"
+    if: ${{ github.event_name }} == 'pull_request'
+    runs-on: ubuntu-latest
+    needs: test-with-report
+    permissions:
+      contents: read
+      actions: read # to download code coverage results from "test" job
+      pull-requests: write # write permission needed to comment on PR
+    steps:
+      - uses: fgrosse/go-coverage-report@v1.1.1 # Consider using a Git revision for maximum security
+        with:
+          coverage-artifact-name: "junit-test-report-and-coverage" # can be omitted if you used this default value
+          coverage-file-name: "coverage.txt"

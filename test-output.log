@@ -1,0 +1,84 @@
+{"Time":"2024-08-29T13:02:42.154751+09:00","Action":"start","Package":"gotestsum-demo/calculate"}
+{"Time":"2024-08-29T13:02:42.154866+09:00","Action":"run","Package":"gotestsum-demo/calculate","Test":"TestAdd"}
+{"Time":"2024-08-29T13:02:42.154868+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd","Output":"=== RUN   TestAdd\n"}
+{"Time":"2024-08-29T13:02:42.154873+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd","Output":"=== PAUSE TestAdd\n"}
+{"Time":"2024-08-29T13:02:42.154875+09:00","Action":"pause","Package":"gotestsum-demo/calculate","Test":"TestAdd"}
+{"Time":"2024-08-29T13:02:42.154878+09:00","Action":"cont","Package":"gotestsum-demo/calculate","Test":"TestAdd"}
+{"Time":"2024-08-29T13:02:42.154879+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd","Output":"=== CONT  TestAdd\n"}
+{"Time":"2024-08-29T13:02:42.15488+09:00","Action":"run","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1"}
+{"Time":"2024-08-29T13:02:42.154882+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1","Output":"=== RUN   TestAdd/1+1\n"}
+{"Time":"2024-08-29T13:02:42.154884+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1","Output":"=== PAUSE TestAdd/1+1\n"}
+{"Time":"2024-08-29T13:02:42.154885+09:00","Action":"pause","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1"}
+{"Time":"2024-08-29T13:02:42.154887+09:00","Action":"run","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1"}
+{"Time":"2024-08-29T13:02:42.154888+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1","Output":"=== RUN   TestAdd/2+1\n"}
+{"Time":"2024-08-29T13:02:42.154889+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1","Output":"=== PAUSE TestAdd/2+1\n"}
+{"Time":"2024-08-29T13:02:42.154891+09:00","Action":"pause","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1"}
+{"Time":"2024-08-29T13:02:42.154906+09:00","Action":"run","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1"}
+{"Time":"2024-08-29T13:02:42.154907+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1","Output":"=== RUN   TestAdd/1-1\n"}
+{"Time":"2024-08-29T13:02:42.154909+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1","Output":"=== PAUSE TestAdd/1-1\n"}
+{"Time":"2024-08-29T13:02:42.15491+09:00","Action":"pause","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1"}
+{"Time":"2024-08-29T13:02:42.154912+09:00","Action":"run","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2"}
+{"Time":"2024-08-29T13:02:42.154913+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2","Output":"=== RUN   TestAdd/1+2\n"}
+{"Time":"2024-08-29T13:02:42.154914+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2","Output":"=== PAUSE TestAdd/1+2\n"}
+{"Time":"2024-08-29T13:02:42.154915+09:00","Action":"pause","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2"}
+{"Time":"2024-08-29T13:02:42.15493+09:00","Action":"cont","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1"}
+{"Time":"2024-08-29T13:02:42.154931+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1","Output":"=== CONT  TestAdd/1+1\n"}
+{"Time":"2024-08-29T13:02:42.154934+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1","Output":"--- PASS: TestAdd/1+1 (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.154936+09:00","Action":"pass","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+1","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.154938+09:00","Action":"cont","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1"}
+{"Time":"2024-08-29T13:02:42.15494+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1","Output":"=== CONT  TestAdd/1-1\n"}
+{"Time":"2024-08-29T13:02:42.154941+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1","Output":"--- PASS: TestAdd/1-1 (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.154947+09:00","Action":"pass","Package":"gotestsum-demo/calculate","Test":"TestAdd/1-1","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.154948+09:00","Action":"cont","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1"}
+{"Time":"2024-08-29T13:02:42.154949+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1","Output":"=== CONT  TestAdd/2+1\n"}
+{"Time":"2024-08-29T13:02:42.154951+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1","Output":"--- PASS: TestAdd/2+1 (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.154952+09:00","Action":"pass","Package":"gotestsum-demo/calculate","Test":"TestAdd/2+1","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.154953+09:00","Action":"cont","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2"}
+{"Time":"2024-08-29T13:02:42.154954+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2","Output":"=== CONT  TestAdd/1+2\n"}
+{"Time":"2024-08-29T13:02:42.154956+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2","Output":"--- PASS: TestAdd/1+2 (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.154957+09:00","Action":"pass","Package":"gotestsum-demo/calculate","Test":"TestAdd/1+2","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.154959+09:00","Action":"output","Package":"gotestsum-demo/calculate","Test":"TestAdd","Output":"--- PASS: TestAdd (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.15496+09:00","Action":"pass","Package":"gotestsum-demo/calculate","Test":"TestAdd","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.154961+09:00","Action":"output","Package":"gotestsum-demo/calculate","Output":"PASS\n"}
+{"Time":"2024-08-29T13:02:42.154962+09:00","Action":"output","Package":"gotestsum-demo/calculate","Output":"ok  \tgotestsum-demo/calculate\t(cached)\n"}
+{"Time":"2024-08-29T13:02:42.154965+09:00","Action":"pass","Package":"gotestsum-demo/calculate","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.50354+09:00","Action":"start","Package":"gotestsum-demo/hello"}
+{"Time":"2024-08-29T13:02:42.75572+09:00","Action":"run","Package":"gotestsum-demo/hello","Test":"TestHello"}
+{"Time":"2024-08-29T13:02:42.755782+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello","Output":"=== RUN   TestHello\n"}
+{"Time":"2024-08-29T13:02:42.756799+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello","Output":"=== PAUSE TestHello\n"}
+{"Time":"2024-08-29T13:02:42.756806+09:00","Action":"pause","Package":"gotestsum-demo/hello","Test":"TestHello"}
+{"Time":"2024-08-29T13:02:42.756827+09:00","Action":"run","Package":"gotestsum-demo/hello","Test":"TestHello2"}
+{"Time":"2024-08-29T13:02:42.75683+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello2","Output":"=== RUN   TestHello2\n"}
+{"Time":"2024-08-29T13:02:42.756854+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello2","Output":"--- PASS: TestHello2 (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.756872+09:00","Action":"pass","Package":"gotestsum-demo/hello","Test":"TestHello2","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.756879+09:00","Action":"cont","Package":"gotestsum-demo/hello","Test":"TestHello"}
+{"Time":"2024-08-29T13:02:42.756882+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello","Output":"=== CONT  TestHello\n"}
+{"Time":"2024-08-29T13:02:42.756888+09:00","Action":"run","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!"}
+{"Time":"2024-08-29T13:02:42.756892+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!","Output":"=== RUN   TestHello/Hello,_gotestsum!!\n"}
+{"Time":"2024-08-29T13:02:42.756905+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!","Output":"=== PAUSE TestHello/Hello,_gotestsum!!\n"}
+{"Time":"2024-08-29T13:02:42.756908+09:00","Action":"pause","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!"}
+{"Time":"2024-08-29T13:02:42.756912+09:00","Action":"run","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!"}
+{"Time":"2024-08-29T13:02:42.756915+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!","Output":"=== RUN   TestHello/Hello,_World!!\n"}
+{"Time":"2024-08-29T13:02:42.756925+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!","Output":"=== PAUSE TestHello/Hello,_World!!\n"}
+{"Time":"2024-08-29T13:02:42.756928+09:00","Action":"pause","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!"}
+{"Time":"2024-08-29T13:02:42.756932+09:00","Action":"run","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!"}
+{"Time":"2024-08-29T13:02:42.756943+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!","Output":"=== RUN   TestHello/Hello,_Go!!\n"}
+{"Time":"2024-08-29T13:02:42.756947+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!","Output":"=== PAUSE TestHello/Hello,_Go!!\n"}
+{"Time":"2024-08-29T13:02:42.75695+09:00","Action":"pause","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!"}
+{"Time":"2024-08-29T13:02:42.756954+09:00","Action":"cont","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!"}
+{"Time":"2024-08-29T13:02:42.756957+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!","Output":"=== CONT  TestHello/Hello,_gotestsum!!\n"}
+{"Time":"2024-08-29T13:02:42.756961+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!","Output":"--- PASS: TestHello/Hello,_gotestsum!! (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.756968+09:00","Action":"pass","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_gotestsum!!","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.756971+09:00","Action":"cont","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!"}
+{"Time":"2024-08-29T13:02:42.756974+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!","Output":"=== CONT  TestHello/Hello,_Go!!\n"}
+{"Time":"2024-08-29T13:02:42.756978+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!","Output":"--- PASS: TestHello/Hello,_Go!! (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.756982+09:00","Action":"pass","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_Go!!","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.756985+09:00","Action":"cont","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!"}
+{"Time":"2024-08-29T13:02:42.756988+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!","Output":"=== CONT  TestHello/Hello,_World!!\n"}
+{"Time":"2024-08-29T13:02:42.756998+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!","Output":"--- PASS: TestHello/Hello,_World!! (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.757002+09:00","Action":"pass","Package":"gotestsum-demo/hello","Test":"TestHello/Hello,_World!!","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.757006+09:00","Action":"output","Package":"gotestsum-demo/hello","Test":"TestHello","Output":"--- PASS: TestHello (0.00s)\n"}
+{"Time":"2024-08-29T13:02:42.757009+09:00","Action":"pass","Package":"gotestsum-demo/hello","Test":"TestHello","Elapsed":0}
+{"Time":"2024-08-29T13:02:42.757012+09:00","Action":"output","Package":"gotestsum-demo/hello","Output":"PASS\n"}
+{"Time":"2024-08-29T13:02:42.757134+09:00","Action":"output","Package":"gotestsum-demo/hello","Output":"ok  \tgotestsum-demo/hello\t0.253s\n"}
+{"Time":"2024-08-29T13:02:42.758527+09:00","Action":"pass","Package":"gotestsum-demo/hello","Elapsed":0.255}
