@@ -1,4 +1,4 @@
-name: Upload Go test results
+name: Go test with report
 
 on: [push]
 
@@ -15,7 +15,7 @@ env:
   GOTESTSUM_BIN: "${{ github.workspace }}/.tmp/gotestsum/bin"
 
 jobs:
-  build:
+  test-with-report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
