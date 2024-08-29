@@ -22,6 +22,8 @@ jobs:
       GOTESTSUM_BIN: "${{ github.workspace }}/.tmp/gotestsum/bin"
 
     steps:
+      - name: Print github.event_name
+        run: echo "The event name is ${{ github.event_name }}"
       - uses: actions/checkout@v4
 
       - uses: actions/setup-go@v5
