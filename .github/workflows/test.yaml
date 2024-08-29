@@ -1,7 +1,6 @@
 name: Go test with report
 
 on:
-  push:
   pull_request:
     types: [opened, reopened, synchronize]
 
