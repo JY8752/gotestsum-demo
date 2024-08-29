@@ -16,27 +16,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Go
+
+      - uses: actions/setup-go@v5
         id: setup-go
-        uses: actions/setup-go@v5
         with:
-          go-version: 1.22
+          go-version: "go.mod"
+
       - name: Install dependencies
-        if: ${{ steps.setup-go.outputs.cache-hit != 'true' }}
+        # if: ${{ steps.setup-go.outputs.cache-hit != 'true' }}
         run: go mod download
+
+      - name: Cache gotestsum
+        id: gotestsum-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .tmp/gotestsum/bin
+          key: ${{ runner.os }}-go-gotestsum
+
       - name: Install gotestsum
-        run: go install gotest.tools/gotestsum@latest
+        if: ${{ steps.gotestsum-cache.outputs.cache-hit != 'true' }}
+        run: GOBIN=.tmp/gotestsum/bin go install gotest.tools/gotestsum@latest
+
       - name: Run tests and generate JUnit report
         run: gotestsum --junitfile report.xml --format testdox
+
       - name: Upload test report
         uses: actions/upload-artifact@v4
         with:
           name: junit-test-report
           path: report.xml
+
       - name: Test Report Summary
-        if: always()
+        if: success() || failure()
         uses: dorny/test-reporter@v1
         with:
           name: Tests
-          path: report.xml
+          path: "*.xml"
           reporter: java-junit
