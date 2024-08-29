@@ -11,6 +11,9 @@ permissions:
   actions: read
   checks: write
 
+env:
+  GOTESTSUM_BIN: "${{ github.workspace }}/.tmp/gotestsum/bin"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,28 +21,22 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-go@v5
-        id: setup-go
         with:
           go-version-file: "go.mod"
-
-      - name: Install dependencies
-        # if: ${{ steps.setup-go.outputs.cache-hit != 'true' }}
-        run: go mod download
 
       - name: Cache gotestsum
         id: gotestsum-cache
         uses: actions/cache@v4
         with:
-          path: |
-            "$(pwd)/.tmp/gotestsum/bin"
+          path: ${{ env.GOTESTSUM_BIN}}
           key: ${{ runner.os }}-go-gotestsum
 
       - name: Install gotestsum
         if: ${{ steps.gotestsum-cache.outputs.cache-hit != 'true' }}
-        run: GOBIN="$(pwd)/.tmp/gotestsum/bin" go install gotest.tools/gotestsum@latest
+        run: GOBIN="${{ env.GOTESTSUM_BIN }}" go install gotest.tools/gotestsum@latest
 
       - name: Run tests and generate JUnit report
-        run: .tmp/gotestsum/bin/gotestsum --junitfile report.xml --format testdox
+        run: "${{ env.GOTESTSUM_BIN }}/gotestsum --junitfile report.xml --format testdox"
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
