@@ -1,8 +1,10 @@
 name: Go test with report
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    types: [opened, reopened, synchronize]
 
 defaults:
   run:
@@ -58,17 +60,5 @@ jobs:
           name: Tests
           path: "*.xml"
           reporter: java-junit
-  code_coverage:
-    name: "Code coverage report"
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    needs: test-with-report
-    permissions:
-      contents: read
-      actions: read # to download code coverage results from "test" job
-      pull-requests: write # write permission needed to comment on PR
-    steps:
-      - uses: fgrosse/go-coverage-report@v1.1.1 # Consider using a Git revision for maximum security
-        with:
-          coverage-artifact-name: "junit-test-report-and-coverage" # can be omitted if you used this default value
-          coverage-file-name: "coverage.txt"
+
+      - uses: k1LoW/octocov-action@v1
