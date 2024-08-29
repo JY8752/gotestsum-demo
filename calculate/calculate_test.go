@@ -14,6 +14,7 @@ func TestAdd(t *testing.T) {
 		"2+1": {x: 2, y: 1, expected: 3},
 		"1-1": {x: 1, y: -1, expected: 0},
 		"1+2": {x: 1, y: 2, expected: 3},
+		"1+0": {x: 1, y: 0, expected: 1},
 		// "10+1": {x: 10, y: 1, expected: 21},
 	}
 
