@@ -2,8 +2,9 @@ name: Go test with report
 
 on:
   push:
+    branches:
+      - main
   pull_request:
-    types: [opened, reopened, synchronize]
 
 defaults:
   run:
@@ -17,11 +18,14 @@ jobs:
       contents: read
       actions: read
       checks: write
+      pull-requests: write
 
     env:
       GOTESTSUM_BIN: "${{ github.workspace }}/.tmp/gotestsum/bin"
 
     steps:
+      - name: Print github.event_name
+        run: echo "The event name is ${{ github.event_name }}"
       - uses: actions/checkout@v4
 
       - uses: actions/setup-go@v5
@@ -40,7 +44,7 @@ jobs:
         run: GOBIN="${{ env.GOTESTSUM_BIN }}" go install gotest.tools/gotestsum@latest
 
       - name: Run tests and generate JUnit report, test coverage
-        run: "${{ env.GOTESTSUM_BIN }}/gotestsum --junitfile report.xml --format testdox --  -cover -coverprofile=coverage.txt ./..."
+        run: "${{ env.GOTESTSUM_BIN }}/gotestsum --junitfile report.xml --format testdox --  -cover -coverprofile=coverage.out ./..."
 
       - name: Upload test report and coverage
         uses: actions/upload-artifact@v4
@@ -48,7 +52,7 @@ jobs:
           name: junit-test-report-and-coverage
           path: |
             report.xml
-            coverage.txt
+            coverage.out
 
       - name: Test Report Summary
         if: success() || failure()
@@ -57,17 +61,5 @@ jobs:
           name: Tests
           path: "*.xml"
           reporter: java-junit
-  code_coverage:
-    name: "Code coverage report"
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    needs: test-with-report
-    permissions:
-      contents: read
-      actions: read # to download code coverage results from "test" job
-      pull-requests: write # write permission needed to comment on PR
-    steps:
-      - uses: fgrosse/go-coverage-report@v1.1.1 # Consider using a Git revision for maximum security
-        with:
-          coverage-artifact-name: "junit-test-report-and-coverage" # can be omitted if you used this default value
-          coverage-file-name: "coverage.txt"
+
+      - uses: k1LoW/octocov-action@v1
