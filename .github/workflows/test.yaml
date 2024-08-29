@@ -31,12 +31,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            .tmp/gotestsum/bin
+            "$(pwd)/.tmp/gotestsum/bin"
           key: ${{ runner.os }}-go-gotestsum
 
       - name: Install gotestsum
         if: ${{ steps.gotestsum-cache.outputs.cache-hit != 'true' }}
-        run: GOBIN=.tmp/gotestsum/bin go install gotest.tools/gotestsum@latest
+        run: GOBIN="$(pwd)/.tmp/gotestsum/bin" go install gotest.tools/gotestsum@latest
 
       - name: Run tests and generate JUnit report
         run: gotestsum --junitfile report.xml --format testdox
