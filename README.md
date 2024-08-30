@@ -1,5 +1,7 @@
 # gotestsum-dmeo
 
+![coverage](docs/coverage.svg) ![coverage](docs/ratio.svg) ![coverage](docs/time.svg)
+
 [gotestsum](https://github.com/gotestyourself/gotestsum?tab=readme-ov-file)のデモ。
 
 ## install
