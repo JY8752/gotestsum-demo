@@ -81,3 +81,47 @@ go install gotest.tools/gotestsum/contrib/notify
 ```
 % gotestsum --post-run-command notify 
 ```
+
+## coverage
+
+[octocov](https://github.com/k1LoW/octocov)を使用してPRのコメントにカバレッジを記載する。カバレッジレポートは以下のようにしてgotestsumを使用しても出力できる。
+
+```
+gotestsum --junitfile report.xml --format testdox --  -cover -coverprofile=coverage.out ./...
+```
+
+## CI
+
+```yaml
+      - name: Run tests and generate JUnit report, test coverage
+        run: "${{ env.GOTESTSUM_BIN }}/gotestsum --junitfile report.xml --format testdox --  -cover -coverprofile=coverage.out ./..."
+
+      - name: Upload test report and coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-test-report-and-coverage
+          path: |
+            report.xml
+            coverage.out
+
+      - name: Test Report Summary
+        if: success() || failure()
+        uses: dorny/test-reporter@v1
+        with:
+          name: Tests
+          path: "*.xml"
+          reporter: java-junit
+
+      - uses: k1LoW/octocov-action@v1
+
+```
+
+## Sample
+
+### Coverage
+
+<img src="./docs/coverage.png" />
+
+### Report
+
+<img src="./docs/report.png" />
