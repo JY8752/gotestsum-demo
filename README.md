@@ -118,6 +118,8 @@ gotestsum --junitfile report.xml --format testdox --  -cover -coverprofile=cover
 
 ## Sample
 
+<img src="./examples/gotestsum-format-testdox.gif"/>
+
 ### Coverage
 
 <img src="./docs/coverage.png" />

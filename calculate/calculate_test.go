@@ -3,6 +3,7 @@ package calculate_test
 import (
 	"gotestsum-demo/calculate"
 	"testing"
+	"time"
 )
 
 func TestAdd(t *testing.T) {
@@ -16,7 +17,7 @@ func TestAdd(t *testing.T) {
 		"1+2":   {x: 1, y: 2, expected: 3},
 		"1+0":   {x: 1, y: 0, expected: 1},
 		"10+10": {x: 10, y: 10, expected: 20},
-		// "10+1": {x: 10, y: 1, expected: 21},
+		// "10+1":  {x: 10, y: 1, expected: 21},
 	}
 
 	for name, tt := range tests {
@@ -27,4 +28,19 @@ func TestAdd(t *testing.T) {
 			}
 		})
 	}
+}
+
+func Test10S(t *testing.T) {
+	t.Parallel()
+	time.Sleep(10 * time.Second)
+}
+
+func Test5S(t *testing.T) {
+	t.Parallel()
+	time.Sleep(5 * time.Second)
+}
+
+func Test3S(t *testing.T) {
+	t.Parallel()
+	time.Sleep(3 * time.Second)
 }
